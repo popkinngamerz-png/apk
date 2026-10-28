@@ -13,7 +13,7 @@ jobs:
       - name: Unpack project
         run: |
           unzip -q offlinehub.zip -d app_src
-          APP_DIR=$(dirname "$(find app_src -name package.json -not -path '*/node_modules/*' | head -1)")
+          APP_DIR=$(dirname "$(find app_src -name package.json -not -path '*/node_modules/*' -not -path '*/plugins/*' | head -1)")
           echo "APP_DIR=$APP_DIR" >> "$GITHUB_ENV"
           echo "Project directory: $APP_DIR"
 
